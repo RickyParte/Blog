@@ -30,7 +30,25 @@
             </tr>
             </thead>
             <tbody>
-            <tr>
+
+                @foreach ($posts as $post)
+                <tr>
+                    <td>{{ $post->id }}</td>
+                    <td>{{ $post->titleofpost }}</td>
+                    <td>{{ $post->description }}</td>
+                    <td>{{ $post->createddate }}</td>
+                    <td>
+                        <div class="row">
+                            <div class="col-2">
+                                <a href="{{ url('/delete') }}/{{$post->id}}" ><i class="fa-solid fa-ban text-danger"></i></a>
+                            </div>
+                            <div class="col-2">
+                                <a href="{{ url('/edit') }}/{{$post->id}}"><i class="fa-solid fa-pen-to-square text-primary"></i></a>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+                @endforeach
 
             </tbody>
             </table>
@@ -38,6 +56,10 @@
 
             </div>
 
+
+                </div>
+
+                </div>
 
           </div>
 
@@ -50,7 +72,10 @@
     <!-- /.control-sidebar -->
   </div>
 @endsection
-
-
+<script src="../../plugins/jquery/jquery.min.js"></script>
+<script src="../../plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+<link rel="stylesheet" href="../../plugins/sweetalert2-theme-bootstrap-4/bootstrap-4.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/js/all.min.js"></script>
 </body>
 </html>

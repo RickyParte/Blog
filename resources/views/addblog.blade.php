@@ -17,18 +17,52 @@
             <!-- /.login-logo -->
             <div class="card">
               <div class="card-body login-card-body">
+                @if (Session::has('message'))
+                    <p class="text-center text-success">
+                        <b>
+                            {{ session()->get('message') }}
+                        </b>
+                    </p>
+                 @endif
+                @if (Session::has('error'))
+                    <p class="text-center text-danger">
+                        <b>
+                            {{ session()->get('error') }}
+                        </b>
+                    </p>
+                @endif
+
                 <h3 class="login-box-msg">Add New Blog</h3>
 
-                <form action="" method="POST">
+                <form action="/addpost" method="POST">
+                    @csrf
                     <div class="card-body">
                       <div class="form-group">
                         <label for="blogname">Blog Title</label>
-                        <input type="text" class="form-control" name="blogname" placeholder="Enter Blog Title">
+                        <input type="text" class="form-control" name="blogtitle" placeholder="Enter Blog Title">
                       </div>
+                      <div class="mb-2">
+                        <span class="text-danger">
+                            <b>
+                                @error('blogtitle')
+                                    {{$message}}
+                                @enderror
+                            </b>
+                        </span>
+                    </div>
                       <div class="form-group">
                         <label for="blogdesc">Blog Description</label>
                         <textarea class="form-control" name="blogdescription" placeholder="Enter Blog Description"></textarea>
                       </div>
+                    </div>
+                    <div class="mb-2">
+                        <span class="text-danger">
+                            <b>
+                                @error('blogdescription')
+                                    {{$message}}
+                                @enderror
+                            </b>
+                        </span>
                     </div>
                     <div class="card-body ">
                         <button type="submit" class="btn btn-primary col-12">Submit</button>

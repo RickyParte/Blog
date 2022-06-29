@@ -24,10 +24,18 @@
   <div class="card">
     <div class="card-body login-card-body">
     @if (Session::has('message'))
-    <p class="text-center text-success"><b>{{ session()->get('message') }}</b></p>
+        <p class="text-center text-success">
+            <b>
+                {{ session()->get('message') }}
+            </b>
+        </p>
     @endif
     @if (Session::has('error'))
-    <p class="text-center text-danger"><b>{{ session()->get('error') }}</b></p>
+        <p class="text-center text-danger">
+            <b>
+                {{ session()->get('error') }}
+            </b>
+        </p>
     @endif
 
 
@@ -90,7 +98,7 @@
 
 
       <p class="mb-1 text-center">
-        <a href="/register">Register Account</a>
+        <a href="/admin/register">Register Account</a>
       </p>
     </div>
     <!-- /.login-card-body -->

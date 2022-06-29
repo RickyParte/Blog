@@ -52,7 +52,7 @@
             </span>
         </div>
         <div class="input-group mt-3">
-            <input type="text" class="form-control" name="username" value="{{old('name')}}" placeholder="Enter Your Username">
+            <input type="text" class="form-control" name="username" value="{{old('username')}}" placeholder="Enter Your Username">
             <div class="input-group-append">
               <div class="input-group-text">
                 <span class="fas fa-user"></span>
@@ -62,7 +62,7 @@
           <div class="mb-2">
               <span class="text-danger">
                   <b>
-                      @error('name')
+                      @error('username')
                           {{ $message }}
                       @enderror
                   </b>
@@ -114,7 +114,7 @@
 
       </form>
       <p class="mb-1 mt-2  text-center">
-        <a href="/">Return To Login Page</a>
+        <a href="/admin/login">Return To Login Page</a>
       </p>
     </div>
     <!-- /.Register-card-body -->

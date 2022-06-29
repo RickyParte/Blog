@@ -14,7 +14,10 @@
         <div class="image">
           <img src="../../dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">        </div>
         <div class="info">
-          <a href="#" class="d-block">Alexander Pierce</a>
+            @if (Session::has('username'))
+                <a  class="text-light d-block">{{ session()->get('username') }}</a>
+            @endif
+
         </div>
       </div>
 
@@ -41,7 +44,7 @@
                 </a>
             </li>
             <li class="nav-item">
-                <a href="#" class="nav-link">
+                <a href="/admin/viewblog" class="nav-link">
                     <i class="nav-icon fas fa-street-view"></i>
                     <p>
                         View Your Blogs
